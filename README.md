@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# Tic-Tac-Toe Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple Tic-Tac-Toe game implemented in React. The game allows two players to take turns marking spaces in a 3x3 grid with "X" or "O" symbols. The game automatically detects a win or a tie and displays the result on the screen.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `Square`: A functional component that renders a single square (button) on the Tic-Tac-Toe board.
+- `Board`: Manages the 3x3 grid of `Square` components, handles game logic, and updates the status message.
+- `Game`: The main component that handles game state, history, and reset functionalities.
+- `calculateWinner`: A helper function that checks the board for a winning combination.
 
-## Expanding the ESLint configuration
+## Game Rules
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. The game is played on a 3x3 grid.
+2. Two players take turns to mark the squares with "X" or "O".
+3. The first player to get three of their marks in a row (vertically, horizontally, or diagonally) wins the game.
+4. If all 9 squares are filled and no player has achieved a winning combination, the game results in a tie.
 
-- Configure the top-level `parserOptions` property like this:
+## How to Play
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Clone this repository to your local machine.
+2. Run `npm install` to install dependencies.
+3. Run `npm start` to start the application.
+4. The game will open in your default browser at `http://localhost:3000`.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Click on any empty square to make a move. After a win or a tie, a message will appear on the screen. You can navigate to any previous move by clicking the buttons on the right side of the board.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Code Overview
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+The key logic of the game is managed through the following parts:
+
+- **Winning or Tie Detection**: The function `calculateWinner` checks for a winning line on the board. If all squares are filled without a winner, a tie is declared.
+- **Message Overlay**: When the game ends in a win or tie, a full-screen message appears showing the result.
+  
+## Additional Information
+
+The project includes basic styling in `TicTacToe.css` to organize the layout and style of the game board and end-game message overlay.
+
+Enjoy the game!
