@@ -64,22 +64,18 @@ export default function Game() {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
+
     const winner = calculateWinner(nextSquares);
     if (winner) {
-      setMessage(`Переможець: ${winner}`);
+      setMessage(`Winner: ${winner}. Click anywhere to reload`);
     } else if (!nextSquares.includes(null)) {
-      setMessage("Нічия!");
+      setMessage("Draw! Click anywhere to reload");
     }
   }
 
-
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
-    setMessage(null);
-  }
-
-  function jumpTo(nextMove) {
-    setCurrentMove(nextMove);
+    setMessage(null); // Скидаємо повідомлення при поверненні до попереднього ходу
   }
 
   const moves = history.map((squares, move) => {
@@ -96,8 +92,13 @@ export default function Game() {
     );
   });
 
+  // Додамо обробник кліку для перезавантаження сторінки
+  function handleReload() {
+    window.location.reload();
+  }
+
   return (
-    <div className="game">
+    <div className="game" onClick={message ? handleReload : null}>
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
@@ -112,6 +113,7 @@ export default function Game() {
     </div>
   );
 }
+
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
