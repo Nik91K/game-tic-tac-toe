@@ -1,0 +1,39 @@
+.board-row{
+    position: relative;
+}
+
+.game{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.square{
+    margin: 2px;
+    width: 50px;
+    height: 41px;
+}
+
+.status{
+    margin: 10px;
+    font-size: large;
+}
+
+.message-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2em;
+    z-index: 10;
+  }
+  
+  .message {
+    text-align: center;
+  }
