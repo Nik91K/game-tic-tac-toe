@@ -75,7 +75,7 @@ export default function Game() {
 
   function jumpTo(nextMove) {
     setCurrentMove(nextMove);
-    setMessage(null); // Скидаємо повідомлення при поверненні до попереднього ходу
+    setMessage(null);
   }
 
   const moves = history.map((squares, move) => {
@@ -92,7 +92,7 @@ export default function Game() {
     );
   });
 
-  // Додамо обробник кліку для перезавантаження сторінки
+
   function handleReload() {
     window.location.reload();
   }
