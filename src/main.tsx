@@ -6,7 +6,7 @@ import TicTacToe from './TicTacToe.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
     <TicTacToe />
+    <App />
   </StrictMode>,
 )
