@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, FC } from 'react';
 import './App.css';
-import tasks from './json/tasks.json';
+import { tasks } from './fixture';
 
-const ToDoItem = ({ taskName, completed }) => {
+export const ToDoItem:FC<{taskName: string, completed: boolean}> = ({ taskName, completed }) => {
   return (
     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "15px" }}>
       <span style={{ textDecoration: completed ? "line-through" : "none" }}>{taskName}</span>
@@ -10,6 +10,16 @@ const ToDoItem = ({ taskName, completed }) => {
     </div>
   );
 };
+
+function ToDoItem2(taskName:string, completed:boolean)
+{
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "15px" }}>
+      <span style={{ textDecoration: completed ? "line-through" : "none" }}>{taskName}</span>
+      <span className='check'>{completed ? "�� Completed" : "�� Not Completed"}</span>
+    </div>
+  );
+}
 
 const App = () => {
   return (
